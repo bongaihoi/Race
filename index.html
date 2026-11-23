@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#07131c">
+  <meta name="description" content="Race — game đua xe né chướng ngại vật, chơi trên điện thoại.">
+  <title>Race — Đua xe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game" aria-label="Game đua xe Race">
+    <canvas id="track" aria-label="Đường đua"></canvas>
+    <header class="hud">
+      <div class="brand">RACE<span> • ĐƯỜNG ĐUA</span></div>
+      <div class="stats">
+        <div class="stat"><small>VỊ TRÍ</small><strong id="position">—</strong></div>
+        <div class="stat"><small>TỐC ĐỘ</small><strong><span id="speed">0</span><em> km/h</em></strong></div>
+        <div class="stat distance"><small>QUÃNG ĐƯỜNG</small><strong><span id="distance">0</span><em> / 1.500 m</em></strong></div>
+      </div>
+      <div class="progress"><i id="progress"></i></div>
+    </header>
+
+    <div id="message" class="message" aria-live="polite"></div>
+
+    <section id="welcome" class="dialog">
+      <div class="dialog-card">
+        <div class="eyebrow">SẴN SÀNG XUẤT PHÁT?</div>
+        <h1>RACE<span>.</span></h1>
+        <p>Lái xe, né chướng ngại vật và vượt qua 4 đối thủ AI để về đích!</p>
+        <div class="instructions"><span>◀ ▶</span><span>Chạm nút để chuyển hướng</span></div>
+        <button id="start" class="primary">BẮT ĐẦU ĐUA <b>→</b></button>
+        <small class="keyboard-hint">Máy tính: dùng phím ← → hoặc A / D</small>
+      </div>
+    </section>
+
+    <section id="result" class="dialog hidden">
+      <div class="dialog-card">
+        <div class="eyebrow">CUỘC ĐUA KẾT THÚC</div>
+        <h2 id="result-title">VỀ ĐÍCH!</h2>
+        <p id="result-copy"></p>
+        <button id="again" class="primary">ĐUA LẠI <b>↻</b></button>
+      </div>
+    </section>
+
+    <nav class="controls" aria-label="Điều khiển xe">
+      <button id="left" class="steer" aria-label="Rẽ trái"><span>←</span><small>TRÁI</small></button>
+      <div class="control-tip">GIỮ ĐỂ ĐÁNH LÁI</div>
+      <button id="right" class="steer" aria-label="Rẽ phải"><span>→</span><small>PHẢI</small></button>
+    </nav>
+    <div id="toast" class="toast" role="status"></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
